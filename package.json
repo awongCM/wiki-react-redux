@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "express": "^4.15.5",
+    "materialize-css": "^0.100.2",
     "mongodb": "^2.2.31",
     "mongonaut": "^3.0.0",
     "mongoose": "^4.11.13",
