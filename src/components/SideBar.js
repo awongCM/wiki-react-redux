@@ -7,10 +7,17 @@ class SideBar extends Component {
     super(props);
   }
   
+  //TODOs - to show wiki's tag category
   render() {
     return (
       <div className="SideBar">
-        SideBar
+        <h1>SideBar</h1>
+        <ul className="collection">
+          <li className="collection-item">Alvin</li>
+          <li className="collection-item">Alvin</li>
+          <li className="collection-item">Alvin</li>
+          <li className="collection-item">Alvin</li>
+        </ul>
       </div>
     );
   }
