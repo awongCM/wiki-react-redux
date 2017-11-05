@@ -8,7 +8,7 @@ class NavBar extends Component {
         <div className="nav-wrapper">
           <div className="row">
             <div className="col s12">
-            <a href="#" className="brand-logo">Logo</a>
+            <a href="#" className="brand-logo">Wiki React Redux</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li><a href="sass.html">Add New Wiki Content</a></li>
               </ul>

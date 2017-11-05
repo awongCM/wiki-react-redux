@@ -7,8 +7,7 @@ class Footer extends Component {
       <footer className="page-footer Footer">
         <div className="footer-copyright">
           <div className="container">
-            © 2014 Copyright Text
-            <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
+            © 2017 Copyright - Wiki React Redux
           </div>
         </div>
       </footer>    
