@@ -6,22 +6,17 @@ import './Main.scss';
 import AllWikis from './AllWikis';
 import Wiki from './Wiki';
 import SideBar from './SideBar';
+import WikiForm from './WikiForm';
 
 class Main extends Component {
   render() {
     return (
       <main className="Main">
-        <div className="row">
-          <div className="col s3">
-            <SideBar></SideBar>  
-          </div>
-          <div className="col s9">
-            <Switch>
-              <Route exact path='/' component={AllWikis}></Route>
-              <Route path='/:id' component={Wiki}></Route>
-            </Switch>
-          </div>
-        </div>
+        <Switch>
+          <Route exact path='/wiki' component={AllWikis}></Route>
+          <Route path='/wiki/:id' component={Wiki}></Route>
+          <Route path='/add-wiki/' component={WikiForm}></Route>
+        </Switch>
       </main>
     );
   }

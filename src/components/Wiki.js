@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './Wiki.scss';
 
+import SideBar from "./SideBar";
+
 import WikiAPI from "../data/WikiAPI";
 
 class Wiki extends Component {
@@ -14,29 +16,44 @@ class Wiki extends Component {
       parseInt(this.props.match.params.id, 10)
     );
 
+    let wikiContent = null;
+
     if (!wiki) {
-      return (
-        <div className="Wiki">
+      wikiContent = (
+        <div className="content">
           <h1>There is no wiki content</h1>
-          <Link to='/'>Back</Link>
+          <Link to='/wiki'>Back</Link>
         </div>
       );
+    } else {
+      wikiContent = (
+        <div className="content">
+          <h1>{wiki.title}</h1>
+          <div className="desription">
+            <p>{wiki.content}</p>
+          </div>
+          <div className="chips chips-initial">
+            {
+              wiki.tags.map(tag => <div className="chip">{tag}</div> )
+            }
+          </div>
+          <Link to='/wiki'>Back</Link>
+        </div>
+      )
     }
 
     return (
-      <div className="Wiki">
-        <h1>{wiki.title}</h1>
-        <div className="desription">
-          <p>{wiki.content}</p>
+      <div className="row">
+        <div className="col s3">
+          <SideBar></SideBar>  
         </div>
-        <div className="chips chips-initial">
-          {
-            wiki.tags.map(tag => <div className="chip">{tag}</div> )
-          }
+        <div className="col s9">
+          <div className="Wiki">
+            {wikiContent}
+          </div>
         </div>
-        <Link to='/'>Back</Link>
-      </div>
-    );
+      </div>  
+    )
   }
 }
 
