@@ -7,13 +7,15 @@ import AllWikis from './AllWikis';
 import Wiki from './Wiki';
 import SideBar from './SideBar';
 import WikiForm from './WikiForm';
+import Home from "./Home";
 
 class Main extends Component {
   render() {
     return (
       <main className="Main">
         <Switch>
-          <Route exact path='/wiki' component={AllWikis}></Route>
+          <Route exact path='/' component={Home}></Route>
+          <Route path='/wikis' component={AllWikis}></Route>
           <Route path='/wiki/:id' component={Wiki}></Route>
           <Route path='/add-wiki/' component={WikiForm}></Route>
         </Switch>

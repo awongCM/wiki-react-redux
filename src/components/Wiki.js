@@ -22,7 +22,7 @@ class Wiki extends Component {
       wikiContent = (
         <div className="content">
           <h1>There is no wiki content</h1>
-          <Link to='/wiki'>Back</Link>
+          <Link to='/wikis'>Back</Link>
         </div>
       );
     } else {
@@ -37,7 +37,7 @@ class Wiki extends Component {
               wiki.tags.map(tag => <div className="chip">{tag}</div> )
             }
           </div>
-          <Link to='/wiki'>Back</Link>
+          <Link to='/wikis'>Back</Link>
         </div>
       )
     }
