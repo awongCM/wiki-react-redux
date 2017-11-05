@@ -17,6 +17,7 @@ class AllWikis extends Component {
 
   render() {
     return (
+      //TODO - use multiple components per route
       <div className="row">
         <div className="col s3">
           <SideBar></SideBar>  

@@ -42,6 +42,7 @@ class Wiki extends Component {
       )
     }
 
+    //TODO - use multiple components per route
     return (
       <div className="row">
         <div className="col s3">
