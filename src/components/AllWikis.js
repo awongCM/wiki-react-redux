@@ -5,6 +5,14 @@ import './AllWikis.scss';
 import WikiAPI from '../data/WikiAPI';
 
 class AllWikis extends Component {
+
+  showDateFormat(createdAt) {
+    
+    const wikiDateFormat = new Date (createdAt);
+
+    return wikiDateFormat.toGMTString();
+  }
+
   render() {
     return (
       <div className="AllWikis">
@@ -12,7 +20,12 @@ class AllWikis extends Component {
           {
            WikiAPI.all().map(w => (
              <li key={w.id}>
-                <Link to={`/${w.id}`}>{w.title}</Link>
+                <div className="content">
+                  <Link to={`/${w.id}`}>{w.title}</Link>
+                  <p>{w.content}</p>
+                  <small>Author: {w.author}</small>
+                  <small>Date: {this.showDateFormat(w.createdAt)}</small>
+                </div>
              </li>
            ))
           }
