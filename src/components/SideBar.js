@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './SideBar.scss';
 
-class SideBar extends Component {
+import WikiAPI from "../data/WikiAPI";
+
+ class SideBar extends Component {
   constructor(props){
     super(props);
   }
@@ -11,12 +13,15 @@ class SideBar extends Component {
   render() {
     return (
       <div className="SideBar">
-        <h1>SideBar</h1>
+        <p>Total tags: {WikiAPI.getTagCount()}</p>
         <ul className="collection">
-          <li className="collection-item">Alvin</li>
-          <li className="collection-item">Alvin</li>
-          <li className="collection-item">Alvin</li>
-          <li className="collection-item">Alvin</li>
+          {
+            WikiAPI.getTags().map( (item, i) => (
+              <li key={i} className="collection-item">
+                {item}
+              </li>
+            ))
+          }
         </ul>
       </div>
     );
