@@ -1,6 +1,6 @@
 //Mocked Wikis
 
-export const WikiAPI = {
+const WikiAPI = {
   wikis: [
     { id: 1, 
       title: "Google", 
@@ -25,7 +25,9 @@ export const WikiAPI = {
   ],
   all: function() { return this.wikis;},
   get: function(id) {
-    const foundWiki = p => p.id === id;
-    return this.players.find(foundWiki);
+    const foundWiki = w => w.id === id;
+    return this.wikis.find(foundWiki);
   }
 };
+
+export default WikiAPI;
