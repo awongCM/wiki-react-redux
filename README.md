@@ -2,6 +2,11 @@
 
 Wiki-clone app in React/Redux
 
+## Built Using
+* React
+* React Router
+* Redux
+* Webpack
 ## Installation
 
 TODO: Describe the installation process
