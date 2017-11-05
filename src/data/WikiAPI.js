@@ -5,7 +5,7 @@ const WikiAPI = {
     { id: 1, 
       title: "Google", 
       content: "Google Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur nec varius quam",
-      tags: ['science', 'arts'],
+      tags: ['science', 'arts', 'fiction'],
       author: "Andy Wong",
       createdAt: "2017-11-05T06:06:59.610Z"
     },

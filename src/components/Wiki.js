@@ -29,6 +29,11 @@ class Wiki extends Component {
         <div className="desription">
           <p>{wiki.content}</p>
         </div>
+        <div className="chips chips-initial">
+          {
+            wiki.tags.map(tag => <div className="chip">{tag}</div> )
+          }
+        </div>
         <Link to='/'>Back</Link>
       </div>
     );
