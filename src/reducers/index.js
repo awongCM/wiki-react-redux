@@ -4,6 +4,7 @@ import {
   ADD_WIKI,
   DELETE_WIKI,
   UPDATE_WIKI,
+  FILTER_WIKI,
   SET_TAG_FILTER,
   TagFilters  
  } from '../actions';
@@ -31,6 +32,16 @@ function wikis(state = [], action) {
       });
     case DELETE_WIKI:
       return state.filter((item, index) => index !== action.index);
+    case FILTER_WIKI:
+      return state.map( (item, index) => {
+          const item_tags = item.tags;
+
+          if(item_tags.findIndex((tag, index) => tag === action.tag)) {
+            return item;
+          }
+          return item;
+      });
+    
     default:
       return state;
   }

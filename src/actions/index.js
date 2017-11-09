@@ -3,6 +3,7 @@
 export const ADD_WIKI ='ADD_WIKI';
 export const DELETE_WIKI ='DELETE_WIKI';
 export const UPDATE_WIKI ='UPDATE_WIKI';
+export const FILTER_WIKI = 'FILTER_WIKI';
 export const SET_TAG_FILTER ='SET_TAG_FILTER';
 
 /* Constants */
@@ -23,6 +24,10 @@ export function updateWiki(index, wiki) {
 
 export function deleteWiki(index) {
   return { type: DELETE_WIKI, index };
+}
+
+export function filterWiki(tag) {
+  return { type: FILTER_WIKI, tag };
 }
 
 export function setTagFilter(filter) {
