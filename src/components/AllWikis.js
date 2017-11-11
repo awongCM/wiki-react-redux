@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './AllWikis.scss';
 
-import SideBar from './SideBar';
+import SideBarContainer from "../containers/SideBar";
+
+// import SideBar from './SideBar';
 
 // import WikiAPI from '../data/WikiAPI';
 
@@ -22,7 +24,7 @@ class AllWikis extends Component {
       //TODO - use multiple components per route
       <div className="row">
         <div className="col s3">
-          <SideBar></SideBar>  
+          <SideBarContainer></SideBarContainer>
         </div>
         <div className="col s9">
           <div className="AllWikis">

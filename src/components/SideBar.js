@@ -9,21 +9,29 @@ import './SideBar.scss';
     super(props);
   }
   
-  //TODOs - to show wiki's tag category
   render() {
+    const {tags, totalTags} = this.props;
+
+    let tagContentList;
+
+    if (totalTags > 0) {
+      tagContentList = (
+        <ul className="collection">
+        {
+          tags.map( (item, index) => (
+            <li key={index} className="collection-item">
+              {item}
+            </li>
+          ))
+        }
+        </ul>
+      );
+    }
+
     return (
       <div className="SideBar">
-        <p>--TODO : for tag counts--</p>
-        {/* <p>Total tags: {WikiAPI.getTagCount()}</p>
-        <ul className="collection">
-          {
-            WikiAPI.getTags().map( (item, i) => (
-              <li key={i} className="collection-item">
-                {item}
-              </li>
-            ))
-          }
-        </ul> */}
+        <p>Total tags: {totalTags}</p>
+       {tagContentList}
       </div>
     );
   }
