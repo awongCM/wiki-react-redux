@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
-
 import { Switch, Route, Link } from 'react-router-dom';
 import './WikiForm.scss';
 
+import { connect, dispatch } from 'react-redux';
+import { addWiki } from '../actions';
+
+//Redux Form coupled with Container Componenets design
 class WikiForm extends Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
-    const {handleSubmit} = this.props;
+    //?? confusing if you mixed up the props between redux form and container components    
+    const {handleSubmit, onFormSubmit, wiki} = this.props;
 
     return (
-      <form className="WikiForm" onSubmit={handleSubmit}>
+      <form className="WikiForm" onSubmit={handleSubmit(onFormSubmit)}>
           <div className="input-field">
             <label htmlFor="title" >Title</label>
             <Field name="title" component="input" type="text" id="title"/>
@@ -28,8 +36,29 @@ class WikiForm extends Component {
   }
 }
 
+//Form Decorator
 WikiForm = reduxForm({
   form: 'WikiForm'
 })(WikiForm);
 
-export default WikiForm;
+//Form Container properties
+const mapStateToProps = (state, ownProps) => {
+  return {
+    wiki: state.wiki
+  };
+};
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onFormSubmit: (values) => {
+      dispatch(addWiki(values));
+    }
+  };
+};
+
+const WikiFormContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(WikiForm);
+
+export default WikiFormContainer;

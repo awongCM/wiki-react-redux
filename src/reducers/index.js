@@ -17,17 +17,13 @@ function wikis(state = [], action) {
   switch (action.type) {
     case ADD_WIKI:
       return [
-        ...state, 
-        {
-          wiki: action.wiki
-        }
+        ...state,
+        action.wiki
       ];
     case UPDATE_WIKI:
       return state.map( (item, index)=> {
         if (index === action.index) {
-          return Object.assign({}, item, {
-            wiki: action.wiki
-          });
+          return Object.assign({}, item, action.wiki);
         }
         return item;  
       });

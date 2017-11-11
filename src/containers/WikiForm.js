@@ -1,4 +1,4 @@
-//TODO - to implement
+//TODO - defunct...
 
 import { connect } from 'react-redux';
 import { addWiki } from '../actions';
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSubmit: () => {
-      dispatch(addWiki(ownProps.wiki))
+      dispatch(addWiki(ownProps.wiki));
     }
   }
 }

@@ -5,8 +5,8 @@ import { createStore } from 'redux';
 import wikiApp from "./reducers";
 
 let store = createStore(
-  wikiApp
-  /*window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()*/
+  wikiApp,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 //TODO - not really a good practice for 3rd party UI framework

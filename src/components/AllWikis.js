@@ -4,7 +4,7 @@ import './AllWikis.scss';
 
 import SideBar from './SideBar';
 
-import WikiAPI from '../data/WikiAPI';
+// import WikiAPI from '../data/WikiAPI';
 
 class AllWikis extends Component {
 
@@ -16,6 +16,8 @@ class AllWikis extends Component {
   }
 
   render() {
+    const {wikis} = this.props;
+
     return (
       //TODO - use multiple components per route
       <div className="row">
@@ -24,7 +26,7 @@ class AllWikis extends Component {
         </div>
         <div className="col s9">
           <div className="AllWikis">
-            <ul>
+            {/* <ul>
               {
               WikiAPI.all().map(w => (
                 <li key={w.id}>
@@ -37,6 +39,19 @@ class AllWikis extends Component {
                 </li>
               ))
               }
+            </ul> */}
+            <ul>
+            {
+              wikis.map( (wiki, index) => (
+                <li key={index}>
+                  <div className="content">
+                    <h4>{wiki.title}</h4>
+                    <p>{wiki.content}</p>
+                    <small>{wiki.author}</small>
+                  </div>
+                </li>
+              ))
+            }
             </ul>
           </div>
         </div>
