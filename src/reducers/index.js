@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 
 import { 
   ADD_WIKI,
@@ -58,7 +59,8 @@ function tagFilter(state = SHOW_ALL_TAGS, action) {
 
 const wikiApp = combineReducers({
     tagFilter,
-    wikis
+    wikis,
+    form: formReducer
 });
 
 export default wikiApp;
