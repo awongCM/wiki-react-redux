@@ -7,7 +7,10 @@ import {
   UPDATE_WIKI,
   FILTER_WIKI,
   SET_TAG_FILTER,
-  TagFilters  
+  TagFilters,
+  ADD_TAG,
+  DELETE_TAG,
+  UPDATE_TAG  
  } from '../actions';
 
 const { SHOW_ALL_TAGS, SHOW_SELECTED_TAG } = TagFilters;
@@ -53,9 +56,32 @@ function tagFilter(state = SHOW_ALL_TAGS, action) {
   }
 }
 
+function tags(state = [], action) {
+  
+  switch (action.type) {
+    case ADD_TAG:
+      return [
+        ...state,
+        ...action.tags
+      ];
+    case UPDATE_TAG:
+      return state.map( (item, index)=> {
+        if (index === action.index) {
+          return Object.assign({}, item, action.tag);
+        }
+        return item;  
+      });
+    case DELETE_TAG:
+      return state.filter((item, index) => index !== action.index);
+    default:
+      return state;
+  }
+}
+
 const wikiApp = combineReducers({
     tagFilter,
     wikis,
+    tags,
     form: formReducer
 });
 

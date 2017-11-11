@@ -4,12 +4,7 @@ import { connect } from 'react-redux';
 import { setTagFilter } from '../actions';
 import SideBar from '../components/SideBar';
 
-const getAllUniqueTags = (wikis) => {
-  let tags = [];
-  
-  for (var i = 0; i < wikis.length; i++) {
-        tags = tags.concat(wikis[i].tags);
-  }
+const getAllUniqueTags = (tags) => {
       
   //only unique tags
   return tags.filter( (item, i) => tags.indexOf(item) === i );
@@ -17,8 +12,8 @@ const getAllUniqueTags = (wikis) => {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    tags: getAllUniqueTags(state.wikis),
-    totalTags: getAllUniqueTags(state.wikis).length,
+    tags: getAllUniqueTags(state.tags),
+    totalTags: getAllUniqueTags(state.tags).length,
   };
 };
 

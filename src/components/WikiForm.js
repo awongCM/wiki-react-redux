@@ -3,8 +3,8 @@ import { Field, reduxForm } from 'redux-form';
 import { Switch, Route, Link } from 'react-router-dom';
 import './WikiForm.scss';
 
-import { connect, dispatch } from 'react-redux';
-import { addWiki } from '../actions';
+import { connect } from 'react-redux';
+import { addWiki, addTag } from '../actions';
 
 //Redux Form coupled with Container Componenets design
 class WikiForm extends Component {
@@ -59,7 +59,7 @@ WikiForm = reduxForm({
 //Form Container properties
 const mapStateToProps = (state, ownProps) => {
   return {
-    wiki: state.wiki
+    wiki: state.wiki  //for editing existing wiki content
   };
 };
 
@@ -72,8 +72,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
       let wiki = Object.assign({}, values, {tags: tags})
       dispatch(addWiki(wiki));
+      dispatch(addTag(tags));
 
-      alert("Wiki content added!", JSON.stringify(wiki));
+      alert("Wiki content added!", wiki, tags);
 
     }
   };
