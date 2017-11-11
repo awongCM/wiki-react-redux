@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './Wiki.scss';
 
-import SideBar from "./SideBar";
+import SideBarContainer from '../containers/SideBar';
 
 import WikiAPI from "../data/WikiAPI";
 
@@ -46,7 +46,7 @@ class Wiki extends Component {
     return (
       <div className="row">
         <div className="col s3">
-          <SideBar></SideBar>  
+          <SideBarContainer></SideBarContainer>
         </div>
         <div className="col s9">
           <div className="Wiki">
