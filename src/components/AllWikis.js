@@ -4,7 +4,6 @@ import './AllWikis.scss';
 
 import SideBarContainer from "../containers/SideBar";
 
-// import SideBar from './SideBar';
 
 // import WikiAPI from '../data/WikiAPI';
 
