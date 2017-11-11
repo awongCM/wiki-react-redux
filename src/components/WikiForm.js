@@ -66,7 +66,12 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onFormSubmit: (values) => {
-      dispatch(addWiki(values));
+      //obtain chips data
+      const chips = $('.chips').material_chip('data'),
+            tags = chips.map((chip) => chip.tag);
+
+      let wiki = Object.assign({}, values, {tags: tags})
+      dispatch(addWiki(wiki));
     }
   };
 };
