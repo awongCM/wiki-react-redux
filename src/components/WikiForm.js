@@ -72,6 +72,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
       let wiki = Object.assign({}, values, {tags: tags})
       dispatch(addWiki(wiki));
+
+      alert("Wiki content added!", JSON.stringify(wiki));
+
     }
   };
 };
