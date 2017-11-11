@@ -27,28 +27,14 @@ class AllWikis extends Component {
         </div>
         <div className="col s9">
           <div className="AllWikis">
-            {/* <ul>
-              {
-              WikiAPI.all().map(w => (
-                <li key={w.id}>
-                    <div className="content">
-                      <Link to={`/wiki/${w.id}`}>{w.title}</Link>
-                      <p>{w.content}</p>
-                      <small>Author: {w.author}</small>
-                      <small>Date: {this.showDateFormat(w.createdAt)}</small>
-                    </div>
-                </li>
-              ))
-              }
-            </ul> */}
             <ul>
             {
               wikis.map( (wiki, index) => (
                 <li key={index}>
                   <div className="content">
-                    <h4>{wiki.title}</h4>
+                    <Link to={`/wiki/${index}`}><h4>{wiki.title}</h4></Link>
                     <p>{wiki.content}</p>
-                    <small>{wiki.author}</small>
+                    <small>Author: {wiki.author}</small>
                   </div>
                 </li>
               ))
