@@ -12,6 +12,16 @@ class WikiForm extends Component {
     super(props);
   }
 
+  componentDidUpdate() {
+    //load Materialize Jquery plugin upon successful mount
+    $('.chips').material_chip();
+    
+    $('.chips-placeholder').material_chip({
+      placeholder: 'Enter a tag',
+      secondaryPlaceholder: '+Tag',
+    });
+  }
+
   render() {
     //?? confusing if you mixed up the props between redux form and container components    
     const {handleSubmit, onFormSubmit, wiki} = this.props;
@@ -29,6 +39,11 @@ class WikiForm extends Component {
           <div className="input-field">
             <label htmlFor="author">Author</label>
             <Field name="author" component="input" type="text" id="author"/>
+          </div>
+          <div className="input-field">
+            <div className="chips chips-placeholder">
+              <input id="tags" className="input" placeholder="Enter a tag" />
+            </div>
           </div>
           <button className="btn waves-effect waves-light" type="submit" name="action">Submit</button>
       </form>
