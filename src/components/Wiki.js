@@ -36,6 +36,7 @@ class Wiki extends Component {
             }
           </div>
           <Link to='/wikis'>Back</Link>
+          {/* <Link to='/edit-wiki/'>Edit Wiki</Link> */}
         </div>
       )
     }
@@ -62,11 +63,12 @@ const getWikiContentBy = (wikis, id) => {
 
 //Wiki Container properties
 const mapStateToProps = (state, ownProps) => {
-  const id = ownProps.match.params.id;
-  const wiki = state.wikis[id];
   
+  const params = ownProps.match.params;
+
   return {
-    wiki: wiki
+    id : params.id,
+    wiki: state.wikis[params.id]
   };
 };
 

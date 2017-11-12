@@ -8,7 +8,7 @@ class WikiSection extends Component {
   
   render() {
     return (
-      <Wiki></Wiki>
+      <Wiki />
     )
   }
 }
