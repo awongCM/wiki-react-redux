@@ -12,10 +12,11 @@ import './SideBar.scss';
   render() {
     const {tags, totalTags} = this.props;
 
-    let tagContentList;
+    let tagListContent, tagCounterContent;
 
     if (totalTags > 0) {
-      tagContentList = (
+      tagCounterContent = (<p>Total tags: {totalTags}</p>);
+      tagListContent = (
         <ul className="collection">
         {
           tags.map( (item, index) => (
@@ -26,12 +27,14 @@ import './SideBar.scss';
         }
         </ul>
       );
+    } else {
+      tagCounterContent = (<p>No tag Categories found</p>);
     }
 
     return (
       <div className="SideBar">
-        <p>Total tags: {totalTags}</p>
-       {tagContentList}
+       {tagCounterContent}
+       {tagListContent}
       </div>
     );
   }
