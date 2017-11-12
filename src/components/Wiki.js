@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Link, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
 import './Wiki.scss';
+import { connect } from 'react-redux';
+import { deleteWiki, deleteTag } from '../actions';
 
 import SideBarContainer from '../containers/SideBar';
 
@@ -38,6 +39,7 @@ class Wiki extends Component {
           <div className="links">
             <Link className="link" to='/wikis'>Back</Link>
             <Link className="link" to={`/edit-wiki/${id}`}>Edit Wiki</Link>
+            <button onClick={onDeleteWiki}></button>
           </div>
         </div>
       )
@@ -59,10 +61,6 @@ class Wiki extends Component {
   }
 }
 
-const getWikiContentBy = (wikis, id) => {
-  return wikis.find((index) => index === id);
-}
-
 //Wiki Container properties
 const mapStateToProps = (state, ownProps) => {
   
@@ -74,22 +72,22 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-// const mapDispatchToProps = (dispatch, ownProps) => {
-//   return {
-//     onFormSubmit: (values) => {
-//       //obtain chips data
-//       const chips = $('.chips').material_chip('data'),
-//             tags = chips.map((chip) => chip.tag);
+//TODO
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    onDeleteWiki: (id) => {
+      //obtain chips data
+      const chips = $('.chips').material_chip('data'),
+            tags = chips.map((chip) => chip.tag);
 
-//       let wiki = Object.assign({}, values, {tags: tags})
-//       dispatch(addWiki(wiki));
-//       dispatch(addTag(tags));
+      dispatch(deleteWiki(id));
+      dispatch(deleteTag(tags));
 
-//       alert("Wiki content added!", wiki, tags);
+      alert("Wiki content deleted!", id, tags);
 
-//     }
-//   };
-// };
+    }
+  };
+};
 
 const WikiContainer = withRouter(connect(
   mapStateToProps,
