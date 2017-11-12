@@ -4,7 +4,6 @@ import './AllWikis.scss';
 
 import SideBarContainer from "../containers/SideBar";
 
-
 // import WikiAPI from '../data/WikiAPI';
 
 class AllWikis extends Component {
@@ -45,7 +44,7 @@ class AllWikis extends Component {
 
     return (
       //TODO - use multiple components per route
-      
+
       <div className="row">
         <div className="col s3">
           <SideBarContainer></SideBarContainer>
