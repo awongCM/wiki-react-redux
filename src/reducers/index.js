@@ -24,7 +24,7 @@ function wikis(state = [], action) {
         action.wiki
       ];
     case UPDATE_WIKI:
-      return state.map( (item, index)=> {
+      return state.map( (item, index) => {
         if (index === action.index) {
           return Object.assign({}, item, action.wiki);
         }
@@ -64,13 +64,12 @@ function tags(state = [], action) {
         ...state,
         ...action.tags
       ];
+    //TODO - how to deal with array of tags being removed or updated...
     case UPDATE_TAG:
-      return state.map( (item, index)=> {
-        if (index === action.index) {
-          return Object.assign({}, item, action.tag);
-        }
-        return item;  
-      });
+      return [
+        ...state,
+        ...action.tags
+      ];
     case DELETE_TAG:
       return state.filter((item, index) => index !== action.index);
     default:

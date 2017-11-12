@@ -42,8 +42,9 @@ export function addTag(tags) {
   return { type: ADD_TAG, tags };
 }
 
-export function updateTag(index, tag) {
-  return { type: UPDATE_TAG, index, tag };
+//TODOs - manipulating duplicate or removed items
+export function updateTag(tags) {
+  return { type: UPDATE_TAG, tags };
 }
 
 export function deleteTag(index) {

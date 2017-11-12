@@ -12,7 +12,7 @@ class Wiki extends Component {
   }
   
   render() {
-    const { wiki } = this.props;    
+    const { wiki, id } = this.props;    
 
     let wikiContent = null;
 
@@ -35,8 +35,10 @@ class Wiki extends Component {
               wiki.tags.map(tag => <div className="chip">{tag}</div> )
             }
           </div>
-          <Link to='/wikis'>Back</Link>
-          {/* <Link to='/edit-wiki/'>Edit Wiki</Link> */}
+          <div className="links">
+            <Link className="link" to='/wikis'>Back</Link>
+            <Link className="link" to={`/edit-wiki/${id}`}>Edit Wiki</Link>
+          </div>
         </div>
       )
     }

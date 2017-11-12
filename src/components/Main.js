@@ -19,6 +19,7 @@ class Main extends Component {
           <Route path='/wikis' component={AllWikisSection}></Route>
           <Route path='/wiki/:id' component={WikiSection}></Route>
           <Route path='/add-wiki/' component={WikiFormSection}></Route>
+          <Route path='/edit-wiki/:id' component={WikiFormSection}></Route>
         </Switch>
       </main>
     );
