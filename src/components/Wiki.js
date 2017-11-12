@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 import './Wiki.scss';
 
 import SideBarContainer from '../containers/SideBar';
 
-import WikiAPI from "../data/WikiAPI";
-
+//Wiki component coupled with container component
 class Wiki extends Component {
   constructor(props){
     super(props);
   }
   
   render() {
-    const wiki = WikiAPI.get(
-      parseInt(this.props.match.params.id, 10)
-    );
+    const { wiki } = this.props;    
 
     let wikiContent = null;
 
@@ -58,4 +56,41 @@ class Wiki extends Component {
   }
 }
 
-export default Wiki;
+const getWikiContentBy = (wikis, id) => {
+  return wikis.find((index) => index === id);
+}
+
+//Wiki Container properties
+const mapStateToProps = (state, ownProps) => {
+  const id = ownProps.match.params.id;
+  const wiki = state.wikis[id];
+  
+  return {
+    wiki: wiki
+  };
+};
+
+// const mapDispatchToProps = (dispatch, ownProps) => {
+//   return {
+//     onFormSubmit: (values) => {
+//       //obtain chips data
+//       const chips = $('.chips').material_chip('data'),
+//             tags = chips.map((chip) => chip.tag);
+
+//       let wiki = Object.assign({}, values, {tags: tags})
+//       dispatch(addWiki(wiki));
+//       dispatch(addTag(tags));
+
+//       alert("Wiki content added!", wiki, tags);
+
+//     }
+//   };
+// };
+
+const WikiContainer = withRouter(connect(
+  mapStateToProps,
+  null
+)(Wiki));
+
+export default WikiContainer;
+
