@@ -39,7 +39,7 @@ class Wiki extends Component {
           <div className="links">
             <Link className="link" to='/wikis'>Back</Link>
             <Link className="link" to={`/edit-wiki/${id}`}>Edit Wiki</Link>
-            <button onClick={onDeleteWiki}></button>
+            <button onClick={() => onDeleteWiki(id)}></button>
           </div>
         </div>
       )
@@ -91,7 +91,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const WikiContainer = withRouter(connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Wiki));
 
 export default WikiContainer;
