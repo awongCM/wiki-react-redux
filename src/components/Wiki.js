@@ -81,8 +81,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             tags = chips.map((chip) => chip.tag);
 
       dispatch(deleteWiki(id));
-      dispatch(deleteTag(tags));
-
       alert("Wiki content deleted!", id, tags);
 
     }

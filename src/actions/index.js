@@ -5,10 +5,6 @@ export const DELETE_WIKI ='DELETE_WIKI';
 export const UPDATE_WIKI ='UPDATE_WIKI';
 export const FILTER_WIKI = 'FILTER_WIKI';
 export const SET_TAG_FILTER ='SET_TAG_FILTER';
-export const ADD_TAG = 'ADD_TAG';
-export const DELETE_TAG ='DELETE_TAG';
-export const UPDATE_TAG ='UPDATE_TAG';
-
 
 /* Constants */
 export const TagFilters = {
@@ -36,17 +32,4 @@ export function filterWiki(tag) {
 
 export function setTagFilter(filter) {
   return { type: SET_TAG_FILTER, filter };
-}
-
-export function addTag(tags) {
-  return { type: ADD_TAG, tags };
-}
-
-//TODOs - manipulating duplicate or removed items
-export function updateTag(tags) {
-  return { type: UPDATE_TAG, tags };
-}
-
-export function deleteTag(index) {
-  return { type: DELETE_TAG, index };
 }

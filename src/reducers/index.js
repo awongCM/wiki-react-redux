@@ -7,10 +7,7 @@ import {
   UPDATE_WIKI,
   FILTER_WIKI,
   SET_TAG_FILTER,
-  TagFilters,
-  ADD_TAG,
-  DELETE_TAG,
-  UPDATE_TAG  
+  TagFilters
  } from '../actions';
 
 const { SHOW_ALL_TAGS, SHOW_SELECTED_TAG } = TagFilters;
@@ -47,6 +44,7 @@ function wikis(state = [], action) {
   }
 }
 
+// TODO - tag filter operation
 function tagFilter(state = SHOW_ALL_TAGS, action) {
   switch (action.type) {
     case SET_TAG_FILTER:
@@ -56,31 +54,9 @@ function tagFilter(state = SHOW_ALL_TAGS, action) {
   }
 }
 
-function tags(state = [], action) {
-  
-  switch (action.type) {
-    case ADD_TAG:
-      return [
-        ...state,
-        ...action.tags
-      ];
-    //TODO - how to deal with array of tags being removed or updated...
-    case UPDATE_TAG:
-      return [
-        ...state,
-        ...action.tags
-      ];
-    case DELETE_TAG:
-      return state.filter((item, index) => index !== action.index);
-    default:
-      return state;
-  }
-}
-
 const wikiApp = combineReducers({
     tagFilter,
     wikis,
-    tags,
     form: formReducer
 });
 

@@ -98,12 +98,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       
       if(typeof wiki_id === "undefined") {
         dispatch(addWiki(wiki));
-        dispatch(addTag(tags));  
         alert("Wiki content added!", wiki, tags);
       }
       else {
         dispatch(updateWiki(parseInt(wiki_id), wiki));
-        dispatch(updateTag(tags));
         alert("Wiki content updated!", wiki, tags);
       }
     }
