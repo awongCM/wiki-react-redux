@@ -12,7 +12,7 @@ class NavBar extends Component {
             <a href="#" className="brand-logo">Wiki React Redux</a>
               <ul id="nav-mobile" className="right hide-on-med-and-down">
                 <li><Link to='/'>Home</Link></li>  
-                <li><Link to='/add-wiki/'>Add New Wiki Content</Link></li>  
+                <li><Link to='/wiki/add'>Add New Wiki Content</Link></li>  
               </ul>
             </div>
           </div>  

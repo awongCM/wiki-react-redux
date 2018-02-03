@@ -38,7 +38,7 @@ class Wiki extends Component {
           </div>
           <div className="links">
             <Link className="link" to='/wikis'>Back</Link>
-            <Link className="link" to={`/edit-wiki/${id}`}>Edit Wiki</Link>
+            <Link className="link" to={`/wiki/edit/${id}`}>Edit Wiki</Link>
             <button onClick={() => onDeleteWiki(id)}></button>
           </div>
         </div>
