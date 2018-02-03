@@ -13,7 +13,7 @@ class Wiki extends Component {
   }
   
   render() {
-    const { wiki, id } = this.props;    
+    const { onDeleteWiki, wiki, id } = this.props;    
 
     let wikiContent = null;
 
@@ -33,13 +33,13 @@ class Wiki extends Component {
           </div>
           <div className="chips chips-initial">
             {
-              wiki.tags.map(tag => <div className="chip">{tag}</div> )
+              wiki.tags.map( (tag) => <div className="chip">{tag}</div> )
             }
           </div>
           <div className="links">
             <Link className="link" to='/wikis'>Back</Link>
             <Link className="link" to={`/wiki/edit/${id}`}>Edit Wiki</Link>
-            <button onClick={() => onDeleteWiki(id)}></button>
+            <button className="waves-effect waves-light btn" onClick={() => onDeleteWiki(id)}>Delete Wiki</button>
           </div>
         </div>
       )
@@ -61,36 +61,4 @@ class Wiki extends Component {
   }
 }
 
-//Wiki Container properties
-const mapStateToProps = (state, ownProps) => {
-  
-  const params = ownProps.match.params;
-
-  return {
-    id : params.id,
-    wiki: state.wikis[params.id]
-  };
-};
-
-//TODO
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onDeleteWiki: (id) => {
-      //obtain chips data
-      const chips = $('.chips').material_chip('data'),
-            tags = chips.map((chip) => chip.tag);
-
-      dispatch(deleteWiki(id));
-      alert("Wiki content deleted!", id, tags);
-
-    }
-  };
-};
-
-const WikiContainer = withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Wiki));
-
-export default WikiContainer;
-
+export default Wiki;
