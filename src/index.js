@@ -9,7 +9,6 @@ import 'materialize-css/dist/css/materialize.css';
 import './index.scss';
 
 import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
 
 let store = createStore(
   wikiApp,

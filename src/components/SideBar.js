@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './SideBar.scss';
 
+import Tag from './Tag';
+
  class SideBar extends Component {
   constructor(props){
     super(props);
@@ -18,15 +20,13 @@ import './SideBar.scss';
         <ul className="collection">
         {
           tags.map( (item, index) => (
-            <li key={index} className="collection-item">
-              {item}
-            </li>
+            <Tag key={index} item={item}></Tag>
           ))
         }
         </ul>
       );
     } else {
-      tagCounterContent = (<p>No tag Categories found</p>);
+      tagCounterContent = (<p>No Tag Categories are found</p>);
     }
 
     return (
