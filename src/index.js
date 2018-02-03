@@ -4,18 +4,17 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import wikiApp from "./reducers";
 
+import 'materialize-css';
+import 'materialize-css/dist/css/materialize.css';
+import './index.scss';
+
+import App from './components/App';
+import registerServiceWorker from './registerServiceWorker';
+
 let store = createStore(
   wikiApp,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
-
-//TODO - not really a good practice for 3rd party UI framework
-import "./../node_modules/materialize-css/dist/js/materialize.js";
-import "./../node_modules/materialize-css/dist/css/materialize.css";
-
-import './index.scss';
-import App from './components/App';
-import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render((
   <Provider store={store}>
