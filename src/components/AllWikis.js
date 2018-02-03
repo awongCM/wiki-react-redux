@@ -4,8 +4,6 @@ import './AllWikis.scss';
 
 import SideBarContainer from "../containers/SideBar";
 
-// import WikiAPI from '../data/WikiAPI';
-
 class AllWikis extends Component {
 
   showDateFormat(createdAt) {
