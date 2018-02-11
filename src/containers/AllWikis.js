@@ -1,5 +1,3 @@
-//TODO - to implement
-
 import { connect } from 'react-redux';
 import { setTagFilter, toggleWikis } from '../actions';
 import AllWikis from '../components/AllWikis';

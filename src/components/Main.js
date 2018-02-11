@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './Main.scss';
 
-//TODOs more routing conditions
 
 /* To deicide where to use page component instead */
 import AllWikisSection from './AllWikisSection';
