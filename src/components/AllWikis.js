@@ -6,6 +6,10 @@ import SideBarContainer from "../containers/SideBar";
 
 class AllWikis extends Component {
 
+  constructor(props){
+    super(props);
+  }
+
   showDateFormat(createdAt) {
     
     const wikiDateFormat = new Date (createdAt);

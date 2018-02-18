@@ -1,28 +1,20 @@
-// TODO - to implement
-
 import { connect } from 'react-redux';
-import { setTagFilter, toggleWikis } from '../actions';
+import { setTagFilter, filterWiki, TagFilters } from '../actions';
 import Tag from '../components/Tag';
-
-const getVisibleWikis = (wikis, tag, filter) => {
-  switch (filter) {
-    case 'SHOW_ALL_TAGS':
-      return wikis;
-    case 'SHOW_SELECTED_TAG':
-      return wikis.filter(wiki => wiki.tag === tag);
-  }
-};
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    tag: getSelectedTag(state.wikis, state.tagFilter)
+    selectedTag: ownProps.tagFilter === state.tagFilter
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onTagClick: tag => {
-      dispatch(toggleWikis(tag))
+    onTagClick: (tag) => {
+      dispatch(filterWiki(tag));
+      dispatch(setTagFilter(TagFilters.SHOW_SELECTED_TAG));
+      
+      console.log("filterWiki: ", tag);
     }
   };
 };
@@ -30,6 +22,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 const TagContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(AllWikis);
+)(Tag);
 
 export default TagContainer;

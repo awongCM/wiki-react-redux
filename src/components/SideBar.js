@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import './SideBar.scss';
 
-import Tag from './Tag';
+import TagContainer from '../containers/Tag';
 
  class SideBar extends Component {
   constructor(props){
@@ -20,7 +20,7 @@ import Tag from './Tag';
         <ul className="collection">
         {
           tags.map( (item, index) => (
-            <Tag key={index} item={item}></Tag>
+            <TagContainer key={index} item={item} tagFilter="SHOW_ALL_TAGS"></TagContainer>
           ))
         }
         </ul>

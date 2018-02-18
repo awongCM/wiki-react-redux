@@ -30,13 +30,14 @@ function wikis(state = [], action) {
     case DELETE_WIKI:
       return state.filter((item, index) => index !== action.index);
     case FILTER_WIKI:
-      return state.map( (item, index) => {
-          const item_tags = item.tags;
+      return state.map( (item) => {
+        const item_tags = item.tags;
 
-          if(item_tags.findIndex((tag, index) => tag === action.tag)) {
-            return item;
-          }
-          return item;
+        if(item_tags.findIndex((tag) => tag === action.tag) !== -1) {
+          return Object.assign({},item, {selected: true});
+        } else {
+          return Object.assign({},item, {selected: false});
+        }
       });
     
     default:
