@@ -20,31 +20,3 @@ ReactDOM.render((
     <App />
   </Provider>
 ), document.getElementById('root'));
-
-/* Debugging purpooses */
-// import { 
-//   addWiki,
-//   deleteWiki,
-//   updateWiki,
-//   setTagFilter,
-//   TagFilters
-//  } from './actions';
-
-/* For Debugging purposes later */
-// console.log(store.getState());
-
-// const unsubscribe = store.subscribe(()=> console.log(store.getState()));
-
-// //Dispatch actions
-// store.dispatch(addWiki({title: 'Test1 ', description: 'blah1 blah1', author: 'Andy Wong' }));
-// store.dispatch(addWiki({title: 'Test2 ', description: 'blah2 blah2', author: 'Andy Wong' }));
-// store.dispatch(addWiki({title: 'Test3 ', description: 'blah3 blah3', author: 'Andy Wong' }));
-// store.dispatch(updateWiki(0, {title: 'Test1 ', description: 'blah1 blah1 blah1', author: 'Andy Wong Wong' }));
-// store.dispatch(updateWiki(1, {title: 'Test222 ', description: 'blah2 blah2', author: 'Andy Wong' }));
-// store.dispatch(deleteWiki(2));
-// store.dispatch(setTagFilter(TagFilters.SHOW_SELECTED_TAG));
-// store.dispatch(setTagFilter(TagFilters.SHOW_ALL_TAGS));
-
-// //unsubscribe
-
-// unsubscribe();
