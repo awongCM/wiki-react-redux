@@ -16,10 +16,6 @@ Wiki-clone app in React/Redux
 2. Run `npm rebuild node-sass`
 3. Run `yarn start`
 
-## Usage
-
-TODO: Write usage instructions
-
 ## Feature Todos
 1. Redux Implementation to add/update/delete wiki articles
 2. Implement MongoDB/NodeJS for saving wiki content
