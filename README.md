@@ -7,9 +7,14 @@ Wiki-clone app in React/Redux
 * React Router
 * Redux
 * Webpack
+* Node Sass
+* Node - 6.0 only
+
 ## Installation
 
-TODO: Describe the installation process
+1. Run `yarn install`
+2. Run `npm rebuild node-sass`
+3. Run `yarn start`
 
 ## Usage
 
