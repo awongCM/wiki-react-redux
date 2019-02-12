@@ -10,6 +10,9 @@ Wiki-clone app in React/Redux
 * Node Sass
 * Node - 6.0 only
 
+## Server-side Implementation
+* Express
+
 ## Installation
 
 1. Run `yarn install`
