@@ -13,6 +13,7 @@
     "mongonaut": "^3.0.0",
     "mongoose": "^4.11.13",
     "node-sass": "^4.5.3",
+    "nodemon": "^1.18.10",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
@@ -31,7 +32,7 @@
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "server": "node server.js"
+    "server": "nodemon server.js"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

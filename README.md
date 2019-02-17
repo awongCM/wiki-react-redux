@@ -13,12 +13,19 @@ Wiki-clone app in React/Redux
 ## Server-side Implementation
 * Express
 * Body Parser
+* Router
+* Nodemon
 
-## Installation
+## Installation (client-side)
 
 1. Run `yarn install`
 2. Run `npm rebuild node-sass`
 3. Run `yarn start`
+
+## Installation (slient-side)
+
+1. Run `yarn install`
+2. Run `yarn server`
 
 ## Feature Todos
 1. Redux Implementation to add/update/delete wiki articles
