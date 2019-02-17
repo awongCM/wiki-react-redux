@@ -12,6 +12,7 @@ Wiki-clone app in React/Redux
 
 ## Server-side Implementation
 * Express
+* Body Parser
 
 ## Installation
 
