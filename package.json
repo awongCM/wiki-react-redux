@@ -28,7 +28,7 @@
     "webpack": "^4.0.0",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.1.1",
-    "snyk": "^1.521.0"
+    "snyk": "^1.667.0"
   },
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
