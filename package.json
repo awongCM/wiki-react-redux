@@ -11,7 +11,7 @@
     "materialize-css": "^0.100.2",
     "mongodb": "^3.1.13",
     "mongonaut": "^3.0.0",
-    "mongoose": "^5.12.3",
+    "mongoose": "^5.13.15",
     "node-sass": "^4.13.1",
     "nodemon": "^2.0.0",
     "react": "^16.5.0",
