@@ -18,7 +18,7 @@
     "react-dom": "^16.5.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "4.0.0",
+    "react-scripts": "5.0.0",
     "redux": "^3.7.2",
     "redux-form": "^7.1.2",
     "sass-loader": "^6.0.6",
@@ -26,9 +26,9 @@
     "uglifyjs-webpack-plugin": "^1.1.6",
     "url-loader": "^1.0.0",
     "webpack": "^5.0.0",
-    "webpack-dev-server": "^3.11.0",
+    "webpack-dev-server": "^4.8.0",
     "webpack-merge": "^4.1.1",
-    "snyk": "^1.521.0"
+    "snyk": "^1.685.0"
   },
   "scripts": {
     "start": "webpack-dev-server --open --config webpack.dev.js",
