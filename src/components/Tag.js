@@ -1,12 +1,15 @@
-import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import './Tag.scss';
+import React from "react";
+import "./Tag.scss";
 
-const Tag = ({item, selectedTag, onTagClick}) => {
-  
+const Tag = ({ item, onTagClick, activeTag }) => {
   return (
-    <li className="collection-item" onClick={() => onTagClick(item)}>{item}</li>
+    <li
+      className={`collection-item ${activeTag === item ? "active" : ""}`}
+      onClick={() => onTagClick(item)}
+    >
+      {item}
+    </li>
   );
-}
+};
 
 export default Tag;

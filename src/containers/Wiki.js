@@ -1,6 +1,6 @@
-import { Switch, Route, Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-import { deleteWiki, removeTags } from "../actions";
+import { removeWiki } from "../actions";
 import Wiki from "../components/Wiki";
 
 const mapStateToProps = (state, ownProps) => {
@@ -8,17 +8,15 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     id: params.id,
-    wiki: state.wikis[params.id]
+    wiki: state.wikis.find(item => item._id === params.id)
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onDeleteWiki: id => {
-      dispatch(deleteWiki(parseInt(id)));
-    },
-    onRemoveTags: tags => {
-      dispatch(removeTags(tags));
+    onDeleteWiki: async id => {
+      await dispatch(removeWiki(id));
+      ownProps.history.push("/wikis");
     }
   };
 };

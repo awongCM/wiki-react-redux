@@ -1,20 +1,19 @@
-import { connect } from 'react-redux';
-import { setTagFilter, filterWiki, TagFilters } from '../actions';
-import Tag from '../components/Tag';
+import { connect } from "react-redux";
+import { filterWiki, setTagFilter, TagFilters } from "../actions";
+import Tag from "../components/Tag";
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    selectedTag: ownProps.tagFilter === state.tagFilter
+    tagFilter: state.tagFilter,
+    activeTag: state.activeTag
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    onTagClick: (tag) => {
+    onTagClick: tag => {
       dispatch(filterWiki(tag));
       dispatch(setTagFilter(TagFilters.SHOW_SELECTED_TAG));
-      
-      console.log("filterWiki: ", tag);
     }
   };
 };

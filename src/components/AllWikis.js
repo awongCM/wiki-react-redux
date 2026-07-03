@@ -1,26 +1,29 @@
-import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
-import './AllWikis.scss';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "./AllWikis.scss";
 
 import SideBarContainer from "../containers/SideBar";
 
 class AllWikis extends Component {
-
-  constructor(props){
-    super(props);
-  }
-
   showDateFormat(createdAt) {
-    
-    const wikiDateFormat = new Date (createdAt);
-
-    return wikiDateFormat.toGMTString();
+    return new Date(createdAt).toUTCString();
   }
-
-
 
   render() {
-    const {wikis} = this.props;
+    const { wikis, loading, error } = this.props;
+
+    if (loading) {
+      return <div className="AllWikis"><p>Loading wikis...</p></div>;
+    }
+
+    if (error) {
+      return (
+        <div className="AllWikis">
+          <p className="red-text">Error loading wikis: {error}</p>
+          <p>Make sure the API server and MongoDB are running.</p>
+        </div>
+      );
+    }
 
     let allWikisContent = (
       <h1>You do not have any wiki content at present</h1>
@@ -29,34 +32,33 @@ class AllWikis extends Component {
     if (wikis.length > 0) {
       allWikisContent = (
         <ul>
-        {
-          wikis.map( (wiki, index) => (
-            <li key={index}>
+          {wikis.map(wiki => (
+            <li key={wiki._id}>
               <div className="content">
-                <Link to={`/wiki/${index}`}><h4>{wiki.title}</h4></Link>
+                <Link to={`/wiki/${wiki._id}`}>
+                  <h4>{wiki.title}</h4>
+                </Link>
                 <p>{wiki.content}</p>
                 <small>Author: {wiki.author}</small>
+                {wiki.createdAt && (
+                  <small> | Created: {this.showDateFormat(wiki.createdAt)}</small>
+                )}
               </div>
             </li>
-          ))
-        }
+          ))}
         </ul>
       );
     }
 
     return (
-      //TODO - use multiple components per route
-
       <div className="row">
         <div className="col s3">
-          <SideBarContainer></SideBarContainer>
+          <SideBarContainer />
         </div>
         <div className="col s9">
-          <div className="AllWikis">
-            {allWikisContent}
-          </div>
+          <div className="AllWikis">{allWikisContent}</div>
         </div>
-      </div>     
+      </div>
     );
   }
 }

@@ -1,23 +1,24 @@
-import { connect } from 'react-redux';
-import { setTagFilter, toggleWikis } from '../actions';
-import AllWikis from '../components/AllWikis';
+import { connect } from "react-redux";
+import { TagFilters } from "../actions";
+import AllWikis from "../components/AllWikis";
 
-// TODO - complete filtering functions
-const getAllSelectedWikis = (wikis, tagFilter) => {
-  return wikis.filter((wiki)=>{
-    if(wiki.selected === true) return wiki;
-  });
+const { SHOW_SELECTED_TAG } = TagFilters;
+
+const getVisibleWikis = (wikis, tagFilter) => {
+  if (tagFilter === SHOW_SELECTED_TAG) {
+    return wikis.filter(wiki => wiki.selected);
+  }
+  return wikis;
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
-    wikis:  state.wikis
+    wikis: getVisibleWikis(state.wikis, state.tagFilter),
+    loading: state.loading,
+    error: state.error
   };
 };
 
-const AllWikisContainer = connect(
-  mapStateToProps,
-  null
-)(AllWikis);
+const AllWikisContainer = connect(mapStateToProps)(AllWikis);
 
 export default AllWikisContainer;
