@@ -1,3 +1,10 @@
 .SideBar {
-  
+  .collection-item {
+    cursor: pointer;
+
+    &.active {
+      background-color: #26a69a;
+      color: #fff;
+    }
+  }
 }

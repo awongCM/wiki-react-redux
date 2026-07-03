@@ -1,15 +1,12 @@
 import React, { Component } from "react";
-import { Switch, Route, Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Wiki.scss";
-import { connect } from "react-redux";
-import { deleteWiki } from "../actions";
 
 import SideBarContainer from "../containers/SideBar";
 
-//Wiki component coupled with container component
 class Wiki extends Component {
   render() {
-    const { onDeleteWiki, onRemoveTags, wiki, id } = this.props;
+    const { onDeleteWiki, wiki, id } = this.props;
 
     let wikiContent = null;
 
@@ -28,8 +25,10 @@ class Wiki extends Component {
             <p>{wiki.content}</p>
           </div>
           <div id="wiki-chips" className="chips chips-initial">
-            {wiki.tags.map(tag => (
-              <div className="chip">{tag}</div>
+            {(wiki.tags || []).map(tag => (
+              <div className="chip" key={tag}>
+                {tag}
+              </div>
             ))}
           </div>
           <div className="links">
@@ -41,10 +40,7 @@ class Wiki extends Component {
             </Link>
             <button
               className="waves-effect waves-light btn"
-              onClick={() => {
-                onDeleteWiki(id);
-                onRemoveTags(wiki.tags);
-              }}
+              onClick={() => onDeleteWiki(id)}
             >
               Delete Wiki
             </button>
@@ -53,7 +49,6 @@ class Wiki extends Component {
       );
     }
 
-    //TODO - use multiple components per route
     return (
       <div className="row">
         <div className="col s3">

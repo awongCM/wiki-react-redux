@@ -1,28 +1,36 @@
-import { connect } from 'react-redux';
-import { setTagFilter } from '../actions';
-import SideBar from '../components/SideBar';
+import { connect } from "react-redux";
+import {
+  filterWiki,
+  setTagFilter,
+  clearTagFilter,
+  TagFilters
+} from "../actions";
+import SideBar from "../components/SideBar";
 
-const getAllUniqueTags = (wikis) => {
-  let unique_tags = [], tags;
-  if(wikis.length > 0){
-    tags = wikis.map((wiki)=>wiki.tags).reduce((prev, curr) => prev.concat(curr));
-    unique_tags = tags.filter( (item, i) => tags.indexOf(item) === i );
-  }
-  return unique_tags;
+const getAllUniqueTags = wikis => {
+  const tags = wikis.reduce(
+    (acc, wiki) => acc.concat(wiki.tags || []),
+    []
+  );
+  return tags.filter((item, index) => tags.indexOf(item) === index);
 };
 
-const mapStateToProps = (state, ownProps) => {
-  // TODO: to decide whether it's worth to have tags reducer for this
+const mapStateToProps = state => {
   return {
     tags: getAllUniqueTags(state.wikis),
     totalTags: getAllUniqueTags(state.wikis).length,
+    tagFilter: state.tagFilter
   };
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     onTagClick: tag => {
-      dispatch(toggleWikis(tag));
+      dispatch(filterWiki(tag));
+      dispatch(setTagFilter(TagFilters.SHOW_SELECTED_TAG));
+    },
+    onShowAllClick: () => {
+      dispatch(clearTagFilter());
     }
   };
 };
