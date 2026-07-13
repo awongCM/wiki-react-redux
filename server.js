@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -99,6 +100,14 @@ router.delete("/wikis/:id", async (req, res) => {
 
 app.use("/api", router);
 
+if (process.env.NODE_ENV === "production") {
+  const distPath = path.join(__dirname, "dist");
+  app.use(express.static(distPath));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
+  });
+}
+
 async function connectDatabase() {
   if (useInMemoryDb) {
     const { MongoMemoryServer } = require("mongodb-memory-server");
@@ -115,8 +124,8 @@ async function connectDatabase() {
 
 connectDatabase()
   .then(() => {
-    app.listen(port, () => {
-      console.log(`API server started on port: ${port}`);
+    app.listen(port, "0.0.0.0", () => {
+      console.log(`Server started on port: ${port}`);
     });
   })
   .catch(error => {

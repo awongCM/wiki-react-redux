@@ -28,6 +28,7 @@
   "scripts": {
     "start": "webpack serve --open --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
+    "start:prod": "NODE_ENV=production node server.js",
     "server": "nodemon server.js",
     "dev": "USE_IN_MEMORY_DB=true concurrently \"yarn server\" \"yarn start\""
   },
